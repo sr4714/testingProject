@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PHOTOS_REST_API_URL = "http://localhost:8080/api/photos";
+const PHOTOS_REST_API_URL = "http://localhost:8080/api/file";
 
 class AddPhotoService {
     createPhoto(photo) {

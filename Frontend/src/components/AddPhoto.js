@@ -28,9 +28,12 @@ class AddPhoto extends Component {
     uploadPhoto = (e) => {
         e.preventDefault();
         const fd = new FormData();
-        fd.append('image', this.state.photo, this.state.photo.name);
-        let newPhoto = {photoname: this.state.photoname, username: 'user', photo: fd};
-        AddPhotoService.createPhoto(newPhoto).then(res => {
+        fd.append('file', this.state.photo);
+        console.log(fd);
+        for (var pair of fd.entries()) {
+            console.log(pair[0] + ', ' + pair[1]);
+        }
+        AddPhotoService.createPhoto(fd).then(res => {
             console.log(res);
             alert("added new photo");
         });
@@ -46,17 +49,12 @@ class AddPhoto extends Component {
                             <div className='card-body'>
                                 <form>
                                     <div className='form-group'>
-                                        <label>Photo name: </label>
-                                        <input placeholder='Photo name' name="photoname" className='form-control'
-                                            value={this.state.photoname} onChange={this.changePhotonameHandler} />
-                                    </div>
-                                    <div className='form-group'>
                                         <label>Photo: </label>
                                         <input placeholder='File' type="file" name="photo" className='form-control'
                                             value={this.state.password} onChange={this.changePhotoHandler} />
                                     </div>
                                     <button className='btn btn-success' onClick={this.uploadPhoto}>Save</button>
-                                    <Link className='btn btn-primary' to="/">Back</Link>
+                                    <Link className='btn btn-primary' to="/dashboard">Back</Link>
                                 </form>
                             </div>
                         </div>
