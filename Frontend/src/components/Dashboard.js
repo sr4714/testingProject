@@ -50,7 +50,7 @@ class Dashboard extends React.Component {
                 <tr key = {photo.id}>
                     <td> {photo.id} </td>
                     <td> {photo.name} </td>
-                    <td> <img src={photo.data}/> </td>
+                    <td> <img src={`data:image/jpeg;base64,${photo.data}`} width="200" height="200" /> </td>
                 </tr>
               )
             }
