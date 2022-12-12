@@ -23,12 +23,12 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 	
-	@GetMapping("users")
+	@GetMapping("/users")
 	public List<User> getUsers() {
 		return this.userRepository.findAll();
 	}
 	
-	@GetMapping("user/{username}/{password}")
+	@GetMapping("/user/{username}/{password}")
 	public ResponseEntity<User> getUser(@PathVariable String username, @PathVariable String password) {
 		List<User> users = this.userRepository.findAll();
 		

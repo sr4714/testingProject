@@ -13,19 +13,19 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    DashboardService.getPhotos().then((Response) => {
-      console.log(Response);
-      this.setState({photos: Response.data})
-    });
+    // DashboardService.getPhotos().then((Response) => {
+    //   console.log(Response);
+    //   this.setState({photos: Response.data})
+    // });
   }
 
   searchPhoto = (e) => {
     e.preventDefault();
-    DashboardService.getPhoto(e.target.value).then((Response) => {
-      this.setState({ photos: Response.data })
-      console.log(Response);
-      console.log(this.state.photos);
-    });
+  //  DashboardService.getPhoto(e.target.value).then((Response) => {
+  //     this.setState({ photos: Response.data })
+  //     console.log(Response);
+  //     console.log(this.state.photos);
+  //   });
   }
 
   render () {
@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
       <div>
         <h1 className="text-center">Photo List</h1>
         <Link className='btn btn-primary' to="/">Logout</Link>
-        <Link className='btn btn-primary' to="/addPhoto">Add Photo</Link>
+        <Link className='btn btn-primary' to="/addPhoto" role="button">Add Photo</Link>
         <input type="text" onChange={(e) => this.searchPhoto(e)} />
         <table className='table table-striped'>
           <thead>

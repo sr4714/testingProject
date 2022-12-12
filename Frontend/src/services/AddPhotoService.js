@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require( 'axios');
 
 const PHOTOS_REST_API_URL = "http://localhost:8080/api/file";
 
